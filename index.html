@@ -28,17 +28,17 @@
 			drawValidCode();
 
 			//随机画布背景，生成至少在#9xx开头的渐变背景颜色
-			function randBackColor (elem){
+			/* function randBackColor (elem){
 				var color = randomInRange(9,15,6);
 				elem.style.backgroundImage = "linear-gradient(-45deg, #" + charTable[color[0]] + charTable[color[1]] + 
 				charTable[color[2]] + ",#" + charTable[color[3]] + charTable[color[4]] + charTable[color[5]] ;
-			}
+			} */
 			//画验证码
 			function drawValidCode(){
 				var canvasElem = document.getElementById("drawing");
 				var context = canvasElem.getContext("2d");
-				//drawGridentRect(context);
-				randBackColor(canvasElem);
+				drawGridentRect(context);
+				// randBackColor(canvasElem);
 				drawString(context, Auth_Code);
 				drawCurve(context);
 			}
@@ -53,7 +53,7 @@
 				context.quadraticCurveTo(coordiate[2], 0, 80, coordiate[5]);
 				context.stroke();
 			}
-			/*发现这么画，的话，看不见文字，改为设置画布的background
+			
 			function drawGridentRect(context){
 				var linearGradient = context.createLinearGradient(0,0,80,40);
 				linearGradient.addColorStop(0, 'rgb(250, 250, 250)');
@@ -66,6 +66,7 @@
 				context.textBaseline = "middle";
 				context.font = '24px Sans Serif';
 				context.textAlign = 'left';
+				context.fillStyle = '#000';
 				context.fillText(str, 3, 20);
 			}
 
