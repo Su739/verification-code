@@ -55,12 +55,13 @@
 			}
 			
 			function drawGridentRect(context){
-				var linearGradient = context.createLinearGradient(0,0,80,40);
-				linearGradient.addColorStop(0, 'rgb(250, 250, 250)');
-				linearGradient.addColorStop(1, 'rgb(125, 125, 125)');   
-				context.fillStyle   = linearGradient;
-				context.fillRect(0,0,80, 40);
-			}*/
+				var color = randomInRange(9,15,6);
+			  var linearGradient = context.createLinearGradient(0,0,80,40);
+			  linearGradient.addColorStop(0, `#${charTable[color[0]]}${charTable[color[1]]}${charTable[color[2]]}`);
+			  linearGradient.addColorStop(1, `#${charTable[color[3]]}${charTable[color[4]]}${charTable[color[5]]}`);   
+			  context.fillStyle = linearGradient;
+			  context.fillRect(0,0,80, 40);
+			}
 			//画验证码的文字部分
 			function drawString(context, str){
 				context.textBaseline = "middle";
